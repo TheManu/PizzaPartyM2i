@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<style>
+  h1, h2{
+    text-align:center;
+    color:darkslateblue;
+  }
+</style>
+
+<div class="container">
+
+  <app-menu [title]="title" (menuChange)="changeTitle($event)"></app-menu>
+  <h1>{{ title }}</h1>
+  <router-outlet></router-outlet>
+
+  <div class="card-footer text-muted"><p>{{ dateCourante | date:'medium' }}</p></div>
+</div>

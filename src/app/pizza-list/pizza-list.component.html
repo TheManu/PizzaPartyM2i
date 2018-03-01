@@ -1,0 +1,28 @@
+  <style>
+    .boite-pizzas {
+      text-align:center;
+      padding: 20px 10px; 
+    }
+    p{
+      color: lightblue;
+    }
+  </style>
+
+  <div>
+    <div [hidden]="pizzaSelected.id === 0">
+      <app-pizza [pizza]="pizzaSelected" [selected]="true" class="card alert-success boite-pizzas"></app-pizza>
+    </div>
+    <button type="button" class="btn btn-info" (click)="ajouter()">Ajouter une pizza</button>
+    <button type="button" [hidden]="pizzaSelected.id === 0" class="btn btn-info" (click)="supprimer()">Supprimer</button>
+  
+    <div class="row">
+      <div class="col-lg-3 boite-pizzas" *ngFor="let pizza of pizzas; let i = index">
+  
+        <p>{{ i +1 }} / {{ pizzas.length }} - {{ pizza | json }}</p>
+        <app-pizza [pizza]="pizza" [selected]="pizza.id === pizzaSelected.id" 
+        (click)="selectionner(pizza)"></app-pizza>
+        <a [routerLink]="['/pizza', pizza.id]">Voir la pizza</a>
+        <button type="button" class="btn btn-info" (click)="supprimer(pizza)">Supprimer</button>
+      </div>
+    </div>
+</div>

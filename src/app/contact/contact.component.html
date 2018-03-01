@@ -1,0 +1,22 @@
+<form (submit)="onSubmit()" #registerForm="ngForm" [formGroup]="formContact">
+    <div class="form-group">
+        <label class="center-block">sujet:
+            <input class="form-control" formControlName="sujet" [(ngModel)]="item.sujet">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label class="center-block">email:
+            <input class="form-control" formControlName="email" [(ngModel)]="item.email">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label class="center-block">message:
+            <input class="form-control" formControlName="message" [(ngModel)]="item.message">
+        </label>
+    </div>
+
+    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Enregistrer</button>
+    {{ item | json }}
+</form>

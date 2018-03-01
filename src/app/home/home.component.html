@@ -1,0 +1,9 @@
+<p [bg]="'blue'">
+  Bonjour :)
+  <app-counter></app-counter>
+  Recherche pizza : <input #itemSearch (keyup)="rechercher(itemSearch.value)" 
+    name="rechPizza" id="rechPizza" type="text" [(ngModel)]="recherche">
+  <select id="pizzas">
+    <option *ngFor="let pizza of pizzas" value="{{ pizza.id }}">{{ pizza.name }}</option>
+  </select>
+</p>
